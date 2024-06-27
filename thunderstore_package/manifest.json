@@ -1,0 +1,9 @@
+{
+    "name": "BetterTerminalInfo",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/tru0067/GTFO-BetterTerminalInfo",
+    "description": "Adds the number of extra commands to the initial terminal output.",
+    "dependencies": [
+        "BepInEx-BepInExPack_GTFO-3.2.1"
+    ]
+}
