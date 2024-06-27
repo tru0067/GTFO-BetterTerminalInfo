@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using LevelGeneration;
+using Localization;
 
 namespace BetterTerminalInfo;
 
@@ -71,5 +72,32 @@ internal static class Patch
         // }}}
 
         return false;
+    }
+
+    // Patches `LG_ComputerTerminalCommandInterpreter.AddCommand` - which gets called whenever a
+    // command gets added to the terminal - to now regernate the initial terminal output as long as
+    // the terminal hasn't received any input yet.
+    [HarmonyPatch(
+        typeof(LG_ComputerTerminalCommandInterpreter),
+        nameof(LG_ComputerTerminalCommandInterpreter.AddCommand),
+        new Type[]
+            {
+                typeof(TERM_Command),
+                typeof(string),
+                typeof(LocalizedText),
+                typeof(TERM_CommandRule)
+            }
+    )]
+    [HarmonyPostfix]
+    public static void RegenerateInfoAfterAddCommand(
+        LG_ComputerTerminalCommandInterpreter __instance)
+    {
+        // Check for any previous input.
+        if (__instance.m_inputBuffer.Count == 0)
+        {
+            // If none, clears the screen and regenerates the initial terminal output.
+            __instance.ClearOutputQueueAndScreenBuffer();
+            __instance.AddInitialTerminalOutput();
+        }
     }
 }
