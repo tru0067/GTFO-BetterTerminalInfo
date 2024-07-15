@@ -75,7 +75,7 @@ internal static class Patch
     }
 
     // Patches `LG_ComputerTerminalCommandInterpreter.AddCommand` - which gets called whenever a
-    // command gets added to the terminal - to now regernate the initial terminal output as long as
+    // command gets added to the terminal - to now regenerate the initial terminal output as long as
     // the terminal hasn't received any input yet.
     [HarmonyPatch(
         typeof(LG_ComputerTerminalCommandInterpreter),
