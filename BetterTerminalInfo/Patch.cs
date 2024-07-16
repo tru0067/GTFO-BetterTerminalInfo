@@ -51,7 +51,7 @@ internal static class Patch
         int count = __instance.m_terminal.GetLocalLogs().Count;
         __instance.AddOutput("", false);
         __instance.AddOutput("---------------------------------------------------------------", false);
-        __instance.AddOutput("TERMINAL OS v0.50", false);
+        __instance.AddOutput("TERMINAL OS v0.52", false);
         __instance.AddOutput("---------------------------------------------------------------", false);
         if (__instance.m_terminal.SpawnNode != null)
         {
