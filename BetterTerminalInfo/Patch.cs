@@ -75,8 +75,8 @@ internal static class Patch
     }
 
     // Patches `LG_ComputerTerminalCommandInterpreter.AddCommand` - which gets called whenever a
-    // command gets added to the terminal - to now regenerate the initial terminal output as long as
-    // the terminal hasn't received any input yet.
+    // command gets added to the terminal - to now regenerate the initial terminal output as long
+    // as the terminal hasn't received any input yet.
     [HarmonyPatch(
         typeof(LG_ComputerTerminalCommandInterpreter),
         nameof(LG_ComputerTerminalCommandInterpreter.AddCommand),
@@ -98,6 +98,13 @@ internal static class Patch
             // If none, clears the screen and regenerates the initial terminal output.
             __instance.ClearOutputQueueAndScreenBuffer();
             __instance.AddInitialTerminalOutput();
+
+            // Check if the terminal is password locked.
+            if (__instance.m_terminal.IsPasswordProtected)
+            {
+                // If so, also regenerate the password text.
+                __instance.m_terminal.ResetLockWithPassword();
+            }
         }
     }
 }
