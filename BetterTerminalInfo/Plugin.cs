@@ -15,8 +15,9 @@ public class Plugin : BasePlugin
     public override void Load()
     {
         // Plugin startup logic
-        Log.LogInfo($"{MODNAME} is loading...");
+        Logger.SetupFromInit(this.Log);
+        Logger.Info($"{MODNAME} is loading...");
         _ = Harmony.CreateAndPatchAll(typeof(Patch), GUID);
-        Log.LogInfo($"{MODNAME} is loaded!");
+        Logger.Info($"{MODNAME} is loaded!");
     }
 }
