@@ -46,7 +46,7 @@ internal static class Patch
             }
         }
 
-        // Vanilla code (aside from `v0.50` change): {{{
+        // Vanilla code (aside from `v0.52` change): {{{
         string itemKey = __instance.m_terminal.ItemKey;
         int count = __instance.m_terminal.GetLocalLogs().Count;
         __instance.AddOutput("", false);
