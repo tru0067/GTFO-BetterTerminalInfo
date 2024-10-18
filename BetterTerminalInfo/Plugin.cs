@@ -10,7 +10,7 @@ public class Plugin : BasePlugin
     internal const string AUTHOR = "tru0067";
     internal const string MODNAME = "BetterTerminalInfo";
     internal const string GUID = AUTHOR + "." + MODNAME;
-    internal const string VERSION = "1.0.0";
+    internal const string VERSION = "1.0.2";
 
     public override void Load()
     {

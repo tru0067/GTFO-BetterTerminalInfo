@@ -1,6 +1,6 @@
 {
     "name": "BetterTerminalInfo",
-    "version_number": "1.0.1",
+    "version_number": "1.0.2",
     "website_url": "https://github.com/tru0067/GTFO-BetterTerminalInfo",
     "description": "Adds the number of extra commands to the initial terminal output.",
     "dependencies": [

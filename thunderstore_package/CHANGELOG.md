@@ -6,3 +6,6 @@ Initial release!
 Add checkpointing known issue.
 
 Fix terminal OS version number.
+
+### v1.0.2
+Fix password hints occasionally being removed.
