@@ -11,3 +11,20 @@ number of extra available commands.
 
 It additionally postfixes `LG_ComputerTerminalCommandInterpreter.AddCommand` to
 refresh the initial terminal output if the terminal has not been used.
+
+## Contributing
+
+Change the target r2modman profile in
+`BetterTerminalInfo/BetterTerminalInfo.csproj` to your desired development
+profile.
+
+In order to prevent git from trying to include this change you can run:
+```sh
+git update-index --assume-unchanged BetterTerminalInfo/BetterTerminalInfo.csproj
+```
+
+Note that this will mean that any actual legitimate changes to this file won't
+be noticed, you'll have to add those manually.
+
+Also, don't forget to change the *Active solution configutation* to *Release*
+in *Build > Configuration Manager*.
