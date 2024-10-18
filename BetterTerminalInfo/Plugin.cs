@@ -4,13 +4,19 @@ using HarmonyLib;
 
 namespace BetterTerminalInfo;
 
-[BepInPlugin("BetterTerminalInfo", "BetterTerminalInfo", "1.0.0")]
+[BepInPlugin(GUID, MODNAME, VERSION)]
 public class Plugin : BasePlugin
 {
+    internal const string AUTHOR = "tru0067";
+    internal const string MODNAME = "BetterTerminalInfo";
+    internal const string GUID = AUTHOR + "." + MODNAME;
+    internal const string VERSION = "1.0.0";
+
     public override void Load()
     {
         // Plugin startup logic
-        _ = Harmony.CreateAndPatchAll(typeof(Patch), "tru0067.BetterTerminalInfo");
-        Log.LogInfo("BetterTerminalInfo is loaded!");
+        Log.LogInfo($"{MODNAME} is loading...");
+        _ = Harmony.CreateAndPatchAll(typeof(Patch), GUID);
+        Log.LogInfo($"{MODNAME} is loaded!");
     }
 }
